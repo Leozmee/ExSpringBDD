@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>404</title>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        #container {
+            position: relative;
+            text-align: center;
+        }
+
+        #sunset {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: wave 5s infinite;
+            z-index: -1;
+        }
+
+        #error {
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes wave {
+            0% { transform: translate(-50%, -50%) translateX(-10px); }
+            50% { transform: translate(-50%, -50%) translateX(10px); }
+            100% { transform: translate(-50%, -50%) translateX(-10px); }
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <img id="sunset" src="Sunset.png" alt="Image Sunset">
+    <img id="error" src="Error.gif" alt="Image d'accueil">
+</div>
+</body>
+</html>

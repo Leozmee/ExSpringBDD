@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <span th:replace="~{home :: bootstrapImport}"></span>
+</head>
+<body>
+<span th:replace="~{home :: navbar}"></span>
+<div class="container">
+    <h1>Ajouter un étudiant</h1>
+    <form th:action="@{/add}" method="post" th:object="${student}">
+        <div class="mb-3">
+            <label for="firstname">Prénom :</label>
+            <input type="text" class="form-control" id="firstname" th:field="*{firstname}">
+            <span th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></span>
+        </div>
+        <div class="mb-3">
+            <label for="lastname">Nom :</label>
+            <input type="text" class="form-control" id="lastname" th:field="*{lastname}">
+            <span th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></span>
+        </div>
+        <div class="mb-3">
+            <label for="age">Age :</label>
+            <input type="number" class="form-control" id="age" th:field="*{age}" >
+            <span th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></span>
+        </div>
+        <div class="mb-3">
+            <label for="email">Email :</label>
+            <input type="text" class="form-control" id="email" th:field="*{email}">
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+        </div>
+        <div method="post" th:action="@{/upload}" enctype="multipart/form-data">
+            <input type="file" name="image">
+        </div>
+        <button class="btn btn-primary">Ajouter</button>
+    </form>
+</div>
+</body>
+</html>
